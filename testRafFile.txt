@@ -1,0 +1,49 @@
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/home/ubuntu/myprojectdir/1.DP-CRUD
+ExecStart=/home/ubuntu/myprojectdir/myprojectenv/bin/gunicorn \
+          --access-logfile - \
+          --workers 3 \
+          --bind unix:/run/gunicorn.sock \
+          CRUD.wsgi:application
+
+[Install]
+WantedBy=multi-user.target
+
+
+
+
+server {
+    listen 80;
+    server_name 3.83.214.176;
+
+    location = /favicon.ico { access_log off; log_not_found off; }
+    location /static/ {
+        root /home/ubuntu/myprojectdir/1.DP-CRUD;
+    }
+
+    location / {
+        include proxy_params;
+        proxy_pass http://unix:/run/gunicorn.sock;
+    }
+}
+
+
+
+
+
+sudo ln -s /etc/nginx/sites-available/1.DP-CRUD /etc/nginx/sites-enabled
+
+
+
+
+
+
+
+
+
+
+
+
+
