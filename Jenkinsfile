@@ -9,7 +9,7 @@ pipeline {
         stage('Test') { 
             steps {
                 sh 'ssh -o StricthostKeyChecking=no prod1@0.tcp.in.ngrok.io -p 18472; \
-                sudo apt update '
+                mkdir test '
             }
         }
 
