@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Deploy') { 
             steps {
-                sh 'ssh -o stricthostkeychecking=no ssh prod1@0.tcp.in.ngrok.io -p 18472; \
+                sh 'ssh -o StricthostKeyChecking=no prod1@0.tcp.in.ngrok.io -p 18472; \
                 cd CRUD; \
                 git pull origin master; \
                 pip install -r requirements.txt -- no-warn-script-location; \
