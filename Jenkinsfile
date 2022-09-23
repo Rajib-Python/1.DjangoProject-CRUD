@@ -15,7 +15,7 @@ pipeline {
 
         stage('Deploy to stageing') { 
             steps {
-                sh 'ssh -o StricthostKeyChecking=no prod1@0.tcp.in.ngrok.io -p 18472 " sourch /venv/bin/activate; \
+                sh 'ssh -o StricthostKeyChecking=no prod1@0.tcp.in.ngrok.io -p 18472 "source venv/bin/activate; \
                 cd CRUD; \
                 git pull origin master; \
                 pip install -r requirements.txt -- no-warn-script-location; \
