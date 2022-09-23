@@ -94,7 +94,7 @@ DATABASES = {
     'default': {
 
         'ENGINE': config('DB_ENGINE'),
-        'NAME': BASE_DIR / config('DB_NAME'),
+        'NAME': config('DB_NAME'),
     }
 }
 
