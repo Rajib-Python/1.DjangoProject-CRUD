@@ -18,11 +18,11 @@ pipeline {
                 sh 'ssh -o StricthostKeyChecking=no prod1@0.tcp.in.ngrok.io -p 18472 "source venv/bin/activate; \
                 cd CRUD; \
                 git pull origin master; \
-                pip install -r requirements.txt -- no-warn-script-location; \
+                pip install -r requerment.txt -- no-warn-script-location; \
                 python manage.py migrate; \
-                deactivate; \
-                sudo systemctl restart nginx; \
-                sudo systemctl restart gunicorn "'
+                deactivate; \ "'
+                // sudo systemctl restart nginx; \
+                // sudo systemctl restart gunicorn "'
 
 
 
