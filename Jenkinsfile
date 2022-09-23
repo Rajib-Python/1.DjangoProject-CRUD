@@ -32,7 +32,9 @@ pipeline {
                 python manage.py migrate; \
                 deactivate "'
 
-          
+
+
+                   }
                 }
             }
         }
