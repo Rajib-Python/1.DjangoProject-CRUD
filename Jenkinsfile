@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Test') { 
             steps {
-                sh 'ssh -o -tt StricthostKeyChecking=no prod@34.230.20.19 ; \
+                sh 'ssh -o StricthostKeyChecking=no prod@34.230.20.19 ; \
                 sudo apt update '
             }
         }
