@@ -21,11 +21,6 @@ pipeline {
                 pip install -r requerment.txt -- no-warn-script-location; \
                 python manage.py migrate; \
                 deactivate; \ "'
-                // sudo systemctl restart nginx; \
-                // sudo systemctl restart gunicorn "'
-
-
-
           
             }
         }
