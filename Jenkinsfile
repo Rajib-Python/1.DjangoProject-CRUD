@@ -22,6 +22,8 @@ pipeline {
                 python manage.py migrate; \
                 deactivate "'
 
+                   }
+                }
 
         stage('Deploy to prod') { 
             steps {
@@ -34,8 +36,6 @@ pipeline {
 
 
 
-                   }
-                }
             }
         }
     }
