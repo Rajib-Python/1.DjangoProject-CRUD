@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Test') { 
             steps {
-                sh 'ssh -o StricthostKeyChecking=no prod1@0.tcp.in.ngrok.io -p 18472 ; \
+                sh 'ssh -o StricthostKeyChecking=no prod@34.230.20.19; \
                 sudo apt update '
             }
         }
