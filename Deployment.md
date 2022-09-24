@@ -66,7 +66,6 @@ cd 1.DjangoProject-CRUD
 
 ```
 sudo vim .env
-sudo vim CRUD/settings.py
 
 
 
