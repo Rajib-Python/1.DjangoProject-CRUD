@@ -26,6 +26,14 @@ pipeline {
                 }
 
         stage('Deploy to prod') { 
+            input { 
+
+                message "shell you deploy to producttion"
+                ok  "yes"
+                no "no"
+
+
+            }
             steps {
                 sh 'ssh -o StricthostKeyChecking=no ubuntu@prod.rajibdev.tk "source venv/bin/activate; \
                 cd 1.DjangoProject-CRUD; \
