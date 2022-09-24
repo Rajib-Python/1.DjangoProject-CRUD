@@ -59,11 +59,18 @@ pip install django gunicorn psycopg2-binary
 
 ```
 
-```
+
 cd 1.DjangoProject-CRUD
+
+### let's Update .env file
+
+```
+
+pip install -r requerment.txt 
+python3 manage.py migrate
+
 python3 manage.py createsuperuser
 python3 manage.py collectstatic
-python3 manage.py migrate
 
 sudo ufw allow 8000
 sudo ufw enable
@@ -75,8 +82,9 @@ python manage.py runserver 0.0.0.0:8000
 ### Step 4 — Testing Gunicorn’s Ability to Serve the Project
 
 ```
-cd 1.DjangoProject-CRUD
+
 gunicorn --bind 0.0.0.0:8000 CRUD.wsgi
+
 deactivate
 
 ```
