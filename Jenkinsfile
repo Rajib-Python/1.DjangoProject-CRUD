@@ -30,8 +30,6 @@ pipeline {
 
                 message "shell you deploy to producttion"
                 ok  "yes"
-                no "no"
-
 
             }
             steps {
