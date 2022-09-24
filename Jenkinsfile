@@ -20,10 +20,7 @@ pipeline {
                 git pull origin master; \
                 pip install -r requerment.txt --no-warn-script-location; \
                 python manage.py migrate; \
-                deactivate; \
-                sudo su -; \
-                systemctl restart nginx; \
-                systemctl restart gunicorn"'
+                deactivate"'
 
                    }
                 }
