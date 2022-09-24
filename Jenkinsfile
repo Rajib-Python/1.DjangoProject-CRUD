@@ -20,7 +20,9 @@ pipeline {
                 git pull origin master; \
                 pip install -r requerment.txt -- no-warn-script-location; \
                 python manage.py migrate; \
-                deactivate "'
+                deactivate; \
+                sudo systemctl restart nginx; \
+                sudo systemctl restart gunicorn"'
 
                    }
                 }
@@ -38,7 +40,9 @@ pipeline {
                 git pull origin master; \
                 pip install -r requerment.txt -- no-warn-script-location; \
                 python manage.py migrate; \
-                deactivate "'
+                deactivate 
+                sudo systemctl restart nginx; \
+                sudo systemctl restart gunicorn"'
 
 
 
