@@ -60,11 +60,14 @@ pip install django gunicorn psycopg2-binary
 ```
 
 ```
-cd CRUD
+cd 1.DjangoProject-CRUD
 python3 manage.py createsuperuser
 python3 manage.py collectstatic
+python3 manage.py migrate
 
 sudo ufw allow 8000
+sudo ufw enable
+
 python manage.py runserver 0.0.0.0:8000
 
 ```
@@ -72,9 +75,8 @@ python manage.py runserver 0.0.0.0:8000
 ### Step 4 — Testing Gunicorn’s Ability to Serve the Project
 
 ```
-cd CRUD
+cd 1.DjangoProject-CRUD
 gunicorn --bind 0.0.0.0:8000 CRUD.wsgi
-
 deactivate
 
 ```
@@ -107,7 +109,7 @@ After=network.target
 [Service]
 User=ubuntu
 Group=www-data
-WorkingDirectory=/home/ubuntu/CRUD
+WorkingDirectory=/home/ubuntu/1.DjangoProject-CRUD
 ExecStart=/home/ubuntu/venv/bin/gunicorn \
           --access-logfile - \
           --workers 3 \
@@ -125,31 +127,27 @@ sudo systemctl start gunicorn.socket
 sudo systemctl enable gunicorn.socket
 sudo systemctl status gunicorn.socket
 
-```
-
-
-```
 sudo systemctl daemon-reload
 file /run/gunicorn.sock
 curl --unix-socket /run/gunicorn.sock localhost
-sudo systemctl status gunicorn
-sudo systemctl restart gunicorn
 
+sudo systemctl restart gunicorn
+sudo systemctl status gunicorn
 
 ```
 
 ## Step 10 — Configure Nginx to Proxy Pass to Gunicorn
 
-### sudo vim /etc/nginx/sites-available/shoppinglyx
+### sudo vim /etc/nginx/sites-available/CRUD
 
 ```
 server {
     listen 80;
-    server_name 54.205.54.141;
+    server_name prod.rajibdev.tk;
 
     location = /favicon.ico { access_log off; log_not_found off; }
     location /static/ {
-        root /home/ubuntu/CRUD;
+        root /home/ubuntu/1.DjangoProject-CRUD;
     }
 
     location / {
@@ -161,7 +159,7 @@ server {
 
 ```
 
-### sudo ln -s /etc/nginx/sites-available/shoppinglyx /etc/nginx/sites-enabled
+### sudo ln -s /etc/nginx/sites-available/CRUD /etc/nginx/sites-enabled
 
 ```
 
