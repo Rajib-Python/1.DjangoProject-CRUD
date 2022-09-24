@@ -1,4 +1,3 @@
-# shoppinglyx
 ## This is a Static DJango Shopping Website
 
 ### Step 1 — Installing Packages from the Ubuntu Repositories
