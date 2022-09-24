@@ -18,7 +18,7 @@ pipeline {
                 sh 'ssh -o StricthostKeyChecking=no stage@stage.rajibdev.tk "source venv/bin/activate; \
                 cd 1.DjangoProject-CRUD; \
                 git pull origin master; \
-                pip install -r requerment.txt -- no-warn-script-location; \
+                pip install -r requerment.txt --no-warn-script-location; \
                 python manage.py migrate; \
                 deactivate; \
                 sudo systemctl restart nginx; \
@@ -38,7 +38,7 @@ pipeline {
                 sh 'ssh -o StricthostKeyChecking=no ubuntu@prod.rajibdev.tk "source venv/bin/activate; \
                 cd 1.DjangoProject-CRUD; \
                 git pull origin master; \
-                pip install -r requerment.txt -- no-warn-script-location; \
+                pip install -r requerment.txt --no-warn-script-location; \
                 python manage.py migrate; \
                 deactivate; \
                 sudo systemctl restart nginx; \
