@@ -65,6 +65,14 @@ cd 1.DjangoProject-CRUD
 ### let's Update .env file
 
 ```
+sudo vim .env
+sudo vim CRUD/settings.py
+
+
+
+```
+
+```
 
 pip install -r requerment.txt 
 python3 manage.py migrate

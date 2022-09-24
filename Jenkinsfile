@@ -15,13 +15,14 @@ pipeline {
 
         stage('Deploy to stageing') { 
             steps {
-                sh 'ssh -o StrictHostKeyChecking=no stage@stage.rajibdev.tk " source venv/bin/activate; \
+                sh 'ssh -o StrictHostKeyChecking=no ubuntu@stage.rajibdev.tk " source venv/bin/activate; \
                 cd 1.DjangoProject-CRUD; \
                 git pull origin master; \
                 pip install -r requerment.txt --no-warn-script-location; \
                 python manage.py migrate; \
-                deactivate"'
-
+                deactivate; \
+                sudo systemctl restart nginx; \
+                sudo systemctl restart gunicorn"'
                    }
                 }
 
