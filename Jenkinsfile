@@ -27,7 +27,7 @@ pipeline {
 
         stage('Deploy to prod') { 
             steps {
-                sh 'ssh -o StricthostKeyChecking=no prod@prod.rajibdev.tk "source venv/bin/activate; \
+                sh 'ssh -o StricthostKeyChecking=no ubuntu@prod.rajibdev.tk "source venv/bin/activate; \
                 cd 1.DjangoProject-CRUD; \
                 git pull origin master; \
                 pip install -r requerment.txt -- no-warn-script-location; \
