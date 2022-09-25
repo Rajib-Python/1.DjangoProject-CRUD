@@ -19,6 +19,7 @@ pipeline {
                 cd 1.DjangoProject-CRUD; \
                 git pull origin master; \
                 pip install -r requerment.txt --no-warn-script-location; \
+                python3 manage.py collectstatic; \
                 python manage.py migrate; \
                 deactivate; \
                 sudo systemctl restart nginx; \
